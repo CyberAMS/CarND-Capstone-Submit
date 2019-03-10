@@ -322,7 +322,7 @@ Start the Udacity Simulator after the Udacity Carla ROS environment of this proj
 
 Here is an example of how the car accelerates and stops as required all by itself. On the right you see the debugging information and camera image. The traffic light which is used to determine `RED`, `YELLOW` or `GREEN` is marked up with a bounding box.
 
-<img src="docu_images/190309_StAn_CAP_simulator_smallest.gif" width="100%">
+<img src="https://raw.githubusercontent.com/CyberAMS/CarND-Capstone/master/docu_images/190309_StAn_CAP_simulator_smallest.gif" width="100%">
 
 ### 3. Commands to test the code in the real environment
 
@@ -359,15 +359,15 @@ The following ROS bags from the Udacity Carla vehicle have been tested with the 
 
 The first ROS bag contains a back and forth maneuver around the traffic light. The state of the traffic light is always classified correctly. There is only a short instance at the end when the car stops and the traffic light is `GREEN`. In this case no traffic light is detected with high probability at all. As we only react to `RED` and `YELLOW` traffic lights, this is not a big issue for the given task.
 
-<img src="docu_images/190309_StAn_CAP_just_smallest.gif" width="100%">
+<img src="https://raw.githubusercontent.com/CyberAMS/CarND-Capstone/master/docu_images/190309_StAn_CAP_just_smallest.gif" width="100%">
 
 The second ROS bag contains several full loops around the test site. The state of the traffic light is always classified correctly. There is one repeatable false positive during the loop. A white wall is classified as `GREEN` traffic light. As we only react to `RED` and `YELLOW` traffic lights, this is not a big issue for the given task.
 
-<img src="docu_images/190309_StAn_CAP_loop_smallest.gif" width="100%">
+<img src="https://raw.githubusercontent.com/CyberAMS/CarND-Capstone/master/docu_images/190309_StAn_CAP_loop_smallest.gif" width="100%">
 
 The third ROS bag contains several approaches on the traffic light. The state of the traffic light is mostly classified correctly. There are only a few instances where `RED` and `YELLOW` are mixed up for a very short amount of time. As we react to `RED` and `YELLOW` traffic lights in the same way, this is not a big issue for the given task. Also, when the traffic light is very close, it sometimes is not detected at all. As we stop further away from the traffic light, this is not a big issue for the given task.
 
-<img src="docu_images/190309_StAn_CAP_train_smallest_short.gif" width="100%">
+<img src="https://raw.githubusercontent.com/CyberAMS/CarND-Capstone/master/docu_images/190309_StAn_CAP_train_smallest_short.gif" width="100%">
 
 ## 5. Discussion
 
