@@ -58,6 +58,7 @@ The following table shows an overview of the most important files:
     1. Test results
 1. Discussion
 1. Known issues and possible improvements
+1. Changes after first project submission
 
 [//]: # (Image References)
 
@@ -378,3 +379,11 @@ The second challenge is to find an approach to detect traffic lights in front of
 ## 6. Known issues and possible improvements
 
 As the provided stop line coordinates for the traffic lights in the Udacity Simulator are not exact and additional inaccuracy is added by selecting a waypoint close to them, the vehicle sometimes overshoots the stop line.
+
+The output to the log file is not necessarily purged in strict order of the individual ROS node calls on all systems.
+
+## 7. Changes after first project submission
+
+1. Changed the sequence of debugging and print statements to finish each `process_traffic_lights` call in `tl_detector` with a series of dashes.
+1. Changed the sequence of commands inside the `__init__` method of the `tl_detector` node to ensure all variables are defined and initialized before any callbacks to subscribed topics are called.
+1. Added the `/tld_enabled` topic that is published after the `__init__` method of the `tl_detector` node is finished and every time `process_traffic_lights` in `tl_detector` is finished. This topic is read by the `dbw_node` node and sets the `tld_enabled` flag from `False` to `True`. The `tld_enabled` flag is forwarded to the `control` method of the `controller` object inside the `twist_controller` file. The `controller` does not apply throttle and fully applies the brake until `tld_enabled` is `True`.
