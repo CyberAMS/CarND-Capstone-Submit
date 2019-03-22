@@ -36,7 +36,7 @@ class Controller(object):
         
         self.iteration_count = 0
 
-    def control(self, current_vel, dbw_enabled, linear_vel, angular_vel):
+    def control(self, current_vel, dbw_enabled, tld_enabled, linear_vel, angular_vel):
         # TODO: Change the arg, kwarg list to suit your needs
         # Return throttle, brake, steer
         # rospy.logwarn("dbw_enabled: {0}".format(dbw_enabled))
@@ -59,7 +59,7 @@ class Controller(object):
         throttle = self.throttle_controller.step(vel_error, sample_time)
         brake = 0
 
-        if linear_vel == 0. and current_vel < 0.1:
+        if ((linear_vel == 0. and current_vel < 0.1) or (not tld_enabled)):
             throttle = 0
             brake = 700  # N*m # 700 for real car - simulator would only require 400
         
